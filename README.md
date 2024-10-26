@@ -36,7 +36,7 @@ I'm a passionate Frontend Web Developer dedicated to crafting visually appealing
 
 I believe in clean, organized code and love tackling challenges that improve my problem-solving skills. When I'm not coding, I enjoy exploring the latest design trends and experimenting with animations to bring static designs to life.
 
-🛠 Skills
+## 🛠 Skills
 Languages & Core Technologies: HTML, CSS, JavaScript
 Frontend Frameworks: React, Bootstrap, Tailwind CSS
 Animation & Effects: GSAP, Locomotive Scroll, ScrollTrigger
