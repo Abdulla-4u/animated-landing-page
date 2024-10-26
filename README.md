@@ -32,16 +32,14 @@ https://modernlanding.vercel.app/
 
 
 ## 🚀 About Me
-I'm a Front end web developer...
+I'm a passionate Frontend Web Developer dedicated to crafting visually appealing, responsive, and modern web experiences. With a strong foundation in HTML, CSS, and JavaScript, I focus on building user-friendly interfaces with frameworks like React, Bootstrap, and Tailwind CSS. I love learning new technologies and continuously improving my skill set to stay on the cutting edge of web development.
 
+I believe in clean, organized code and love tackling challenges that improve my problem-solving skills. When I'm not coding, I enjoy exploring the latest design trends and experimenting with animations to bring static designs to life.
 
-## 🛠 Skills
-- React
-- Tailwind CSS
-- Bootstrap
-- HTML
-- CSS
-- JavaScript 
+🛠 Skills
+Languages & Core Technologies: HTML, CSS, JavaScript
+Frontend Frameworks: React, Bootstrap, Tailwind CSS
+Animation & Effects: GSAP, Locomotive Scroll, ScrollTrigger
 
 
 ## Author
