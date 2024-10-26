@@ -23,6 +23,7 @@ Responsive Landing Page is a personal project designed to enhance my skills in w
 - **Modern Aesthetic**: The design is contemporary and user-friendly.
 
 
+
 # Hi, I'm Abdulla! 👋
 
 
