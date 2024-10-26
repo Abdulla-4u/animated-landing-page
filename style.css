@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none !important;
+  font-family: 'Poppins', sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  transition: all .4s ease;
+}
+::selection{
+  background-color: #111010;
+  color: #fff;
+}
+
+/* Navbar */
+.logo {
+  color: #fcae61 !important;
+}
+.nav-link {
+  color: #000 !important;
+  letter-spacing: 0.4px;
+  transition: all 0.5s ease;
+}
+.nav-link:hover {
+  color: #0b5ed7 !important;
+  transform: translateY(-3px);
+}
+.nav-btn{
+  background-color: #2500f9;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid transparent;
+ }
+ 
+ .nav-btn:hover {
+  color: black;
+  border-color: #2500f9;
+ }
+ 
+ .nav-btn:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ .nav-btn:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }
+p {
+  color: #616368 !important;
+}
+/* Hero Section  */
+
+#main-hero {
+  background-image: url(Img/Layer\ 5.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+}
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.hero-section h1 {
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: 3.2rem;
+}
+.hero-text a {
+  margin-top: 9px;
+  color: #4e34fa !important;
+}
+.hero-text button {
+  background-color: #2500f9;
+  color: white !important;
+}
+.hero-text button:hover {
+  background-color: #2403de;
+}
+#header-title {
+  position: relative;
+  background-color: #e2eaed;
+  height: 35px;
+  width: 300px;
+  border-radius: 16px;
+  margin-bottom: 4px;
+}
+#header-title button {
+  background-color: #f8ba1d;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  border-radius: 20px;
+  height: 35px;
+  width: 35px;
+  padding-bottom: 5px;
+}
+#header-title p {
+  display: inline;
+  padding-left: 5px;
+  font-size: 0.9rem !important;
+  font-weight: 600;
+}
+.hero-img img {
+  width: 18rem;
+  animation: float 1.6s ease-in-out infinite alternate;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-7px);
+  }
+} 
+
+
+.tooltip-container {
+  --background: #2500f9;
+  position: relative;
+  background: var(--background);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 17px;
+  padding: 0.7em 1.8em;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  transform-origin: bottom;
+  padding: 0.3em 0.6em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  background: var(--background);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap; /* Prevents text from breaking to a new line */
+  overflow: hidden;    /* Hides any overflow text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) for overflowing text */
+}
+
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 0.6em;
+  width: 0.6em;
+  bottom: -0.2em;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  background: var(--background);
+}
+
+.tooltip-container:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+.tooltip-container:hover {
+  transform: scale(0.9);
+}
+
+
+/* Features Section */
+
+.feature-section {
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+.feature-section img {
+  width: 20rem;
+}
+.feature-section h2 {
+  font-weight: 600;
+}
+.feature-item p {
+  width: 15rem;
+}
+
+.second-feature #feature-1,
+.second-feature #feature-2,
+.second-feature #feature-3 {
+  opacity: 1; /* Ensure they are visible by default */
+}
+
+/* Second Feature Section  */
+
+#feature-1 h5 {
+  color: rgba(255, 0, 0, 0.69) !important;
+}
+#feature-2 h5 {
+  color: rgba(0, 0, 255, 0.632) !important;
+}
+#feature-3 h5 {
+  color: rgba(0, 128, 0, 0.636) !important;
+}
+.feature-img {
+  width: 4rem !important;
+  padding: 9px;
+  object-fit: cover !important;
+}
+.second-feature {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#circle-1 {
+  background-color: rgba(255, 0, 0, 0.104);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: relative !important;
+}
+#circle-2 {
+  background-color: rgba(0, 0, 255, 0.06) !important;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: relative !important;
+}
+#circle-3 {
+  background-color: rgba(0, 128, 0, 0.151);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: relative !important;
+}
+
+/* Learn More Section */
+
+.learn-more-section img{
+  width: 24rem;
+}
+.learn-more-section h2{
+  font-weight: 600;
+}
+
+/* Service Section */
+
+
+#shape {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  margin: 0 auto;
+}
+.srv-1 {
+  background-color: #ffecef;
+}
+.srv-2 {
+  background-color: #eaf9ff;
+}
+.srv-3 {
+  background-color: #fff6d3;
+}
+.srv-4 {
+  background-color: #e4ffee;
+}
+.srv-5 {
+  background-color: #f4f4ff;
+}
+.srv-6 {
+  background-color: #fdeee4;
+}
+
+/* Card section  */
+
+ .box {
+  padding-bottom: 20px;
+  transition: all 0.4s ease;
+}
+
+.card-header {
+  background-color: #f6f9fa;
+}
+.card-body {
+  background-color: #ffffff;
+}
+.free-btn {
+  padding: 10px 36px;
+  border-radius: 22px;
+  font-size: 1rem;
+}
+.free-btn:hover {
+  background-color: #0b5dd7f4;
+}
+.subs-btn {
+  padding: 10px 36px;
+  border-radius: 22px;
+  font-size: 1rem;
+}
+.subs-btn:hover {
+  background-color: #0b5dd7f4;
+}
+
+/* Download Section */
+
+.download-section h2 {
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+#play-store-img,
+#apple-store-img {
+  width: 9rem;
+  cursor: pointer;
+}
+ul li {
+  cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+  background-color: rgb(8, 8, 67);
+  height: 350px;
+  width: 100%;
+  padding-top: 40px;
+}
+.social-icons i {
+  color: gray !important;
+  font-size: 1.6rem;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+.social-icons i:hover {
+  color: white !important;
+  scale: 1.05;
+}
+
+/* Accordion Section */
+
+.accordion {
+  margin: 0 auto;
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url(Img/minus-solid.svg);
+  transform: rotate(-180deg);
+}
+.accordion-button::after {
+  background-image: url(Img/plus-solid.svg);
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform .2s ease-in-out;
+}
+
+
+.accordion-button:not(.collapsed) {
+  background-color: #f5f7fa !important;
+  color: #000;
+}
+.collapsed {
+  color: #000 !important;
+  background-color: #f5f7fa !important;
+}
+
+.text-muted{
+  color: #838282 !important;
+}
+
+
+/* Responsive Style  */
+
+@media (min-width: 991px) {
+  .nav-link {
+    margin-right: 26px;
+  }
+}
+@media (max-width: 991px) {
+  #main-hero{
+    height: 120vh;
+  }
+  .hero-text {
+    margin-top: 80px;
+  }
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  .hero-img img {
+    width: 13rem;
+  }
+  #feature-top{
+    width: 16rem;
+    margin: 0 auto;
+    margin-top: 80px;
+  }
+  #feature-item {
+    margin: 0 auto !important;
+    width: 100%;
+  }
+  .feature-item p{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .center,
+  .center,
+  .center {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 20px;
+  }
+  .nav-btn {
+    margin-top: 8px !important;
+  }
+  .learn-more-section img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .skill-section div div {
+    width: 100% !important;
+  }
+  .footer {
+    height: auto;
+  }
+  #shape {
+    height: 85px;
+    width: 85px !important;
+  }
+}
+@media (max-width: 767px) {
+  #feature-1,
+  #feature-2,
+  #feature-3 {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .learn-more-section{
+    margin: 0 auto !important;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 0.7rem;
+  }
+  .hero-img img {
+    width: 15rem;
+  }
+  .hero-img {
+    width: 100% !important;
+    margin: 0 10px !important;
+  }
+  #feature-top{
+    width: 12rem;
+    margin-top: 30px;
+  }
+  .feature-section img {
+    width: 15rem;
+  }
+  .learn-more-section h2 {
+    font-size: 2rem !important;
+  }
+  .learn-more-section img {
+    width: 18rem !important;
+  }
+  .box h2 {
+    padding-top: 10px;
+    font-size: 1.8rem !important;
+  }
+  .download-section h2{
+    font-size: 2rem;
+  }
+  .accordion-button h5{
+    font-size: .9rem;
+  }
+  .accordion-body p{
+    font-size: .8rem;
+  }
+  #header-title {
+    width: 250px;
+  }
+  #header-title p {
+    font-size: 0.8rem !important;
+  }
+  .smart-section{
+    border: none !important;
+  }
+}
+@media (max-width: 360px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 0.7rem;
+  }
+  .btn-1 {
+    padding: 7px 20px !important;
+    font-size: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  .btn-2 {
+    font-size: 0.9rem !important;
+    margin-top: 10px !important;
+    border-radius: 4px !important;
+  }
+  .learn-more-section h2 {
+    font-size: 1.6rem !important;
+  }
+}
+@media (max-width: 320px) {
+  .hero-text h1 {
+    font-size: 1.7rem;
+  }
+  .hero-text p {
+    font-size: 0.7rem;
+  }
+  .btn-1 {
+    border-radius: 20px !important;
+    font-size: 10px;
+  }
+  .feature-section img {
+    width: 11rem;
+  }
+  #feature-top{
+    margin-top: 100px;
+  }
+  #header-title {
+    width: 223px;
+    height: 30px;
+  }
+  #header-title button{
+    height: 30px;
+    width: 30px;
+  }
+  #header-title p {
+    padding: 0.1rem !important;
+  }
+  .apple-store {
+    margin-top: 10px;
+  }
+  .learn-more-section img{
+    width: 14rem !important;
+  }
+}
