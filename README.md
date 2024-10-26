@@ -23,11 +23,6 @@ Responsive Landing Page is a personal project designed to enhance my skills in w
 - **Modern Aesthetic**: The design is contemporary and user-friendly.
 
 
-## Demo
-
-https://modernlanding.vercel.app/
-
-
 # Hi, I'm Abdulla! 👋
 
 
@@ -37,13 +32,18 @@ I'm a passionate Frontend Web Developer dedicated to crafting visually appealing
 I believe in clean, organized code and love tackling challenges that improve my problem-solving skills. When I'm not coding, I enjoy exploring the latest design trends and experimenting with animations to bring static designs to life.
 
 ## 🛠 Skills
-Languages & Core Technologies: HTML, CSS, JavaScript
-Frontend Frameworks: React, Bootstrap, Tailwind CSS
-Animation & Effects: GSAP, Locomotive Scroll, ScrollTrigger
+- **Languages & Core Technologies**: HTML, CSS, JavaScript
+- **Frontend Frameworks**: React, Tailwind CSS Bootstrap, 
+- **Animation & Effects**: GSAP, Locomotive Scroll, ScrollTrigger
 
 
 ## Author
 - [@abdulla](https://github.com/Abdulla-4u)
+
+
+## Demo
+
+https://modernlanding.vercel.app/
 
 
 ## Run Locally
