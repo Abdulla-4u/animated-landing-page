@@ -1,7 +1,7 @@
 
-# Responsive Landing Page 🚀
+# Animated Landing Page 🚀
 
-Responsive Landing Page is a personal project designed to enhance my skills in web development. This project features a modern, responsive design with smooth scrolling and engaging animations, providing an optimal user experience across different devices.
+This personal project showcases a modern, responsive design with smooth scrolling and dynamic animations. Built to refine my web development skills, it ensures an engaging user experience across all devices.
 
 
 ## Technologies Used 🌐
