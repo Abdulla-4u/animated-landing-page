@@ -25,7 +25,6 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 });
 
 
- // Refresh ScrollTrigger and Locomotive Scroll on resize
  window.addEventListener("resize", () => {
   setTimeout(() => {
     locoScroll.update(); 
@@ -38,18 +37,7 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
-// Smooth scrolling for nav links with Locomotive Scroll
-document.querySelectorAll(".nav-link").forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.querySelector(e.currentTarget.getAttribute("href"));
-    if (target) {
-      locoScroll.scrollTo(target); 
-    }
-  });
-});
 
-// Optional: Update active link based on scroll position
 locoScroll.on("scroll", () => {
   document.querySelectorAll("section").forEach(section => {
     const id = section.getAttribute("id");
@@ -62,66 +50,73 @@ locoScroll.on("scroll", () => {
 });
 
 
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = document.querySelector(e.currentTarget.getAttribute("href"));
+    if (target) {
+      locoScroll.scrollTo(target); 
+    }
+  });
+});
 
+
+// Navbar Animation
 function animateNavbar() {
   gsap.from(".navbar", {
     duration: 1.5,
-    y: -100, // Slide from top
-    opacity: 0, // Start from transparent
+    y: -100,
+    opacity: 0,
     ease: "power4.out",
   });
 
-  // Staggered animation for nav links
   gsap.from(".nav-link", {
     duration: 0.8,
-    stagger: 2, // Animate each link with a delay
+    stagger: 2,
     ease: "power4.out",
   });
 
-  // Button animation
   gsap.from(".nav-btn", {
     duration: 1,
-    scale: 0.5, // Start small and grow
+    scale: 0.5,
     opacity: 0,
     ease: "elastic.out(1, 0.75)",
-    delay: 0.8, // Start after links animation
+    delay: 0.8,
   });
 }
 
 animateNavbar()
 
-// Function to animate the hero section when the page loads
+// Hero Section Animation
 function animateHeroSection() {
-  // Animate the text content
   gsap.from(".hero-text", {
     opacity: 0,
-    y: 50, // Slide up into view
+    y: 50,
     duration: 1.5,
     stagger: 0.6,
     ease: "power2.out",
-    delay: 0.5, // Delay for better appearance timing
+    delay: 0.5,
   });
 
-  // Animate the hero image
   gsap.from(".hero-img img", {
     opacity: 0,
-    x: 100, // Slide in from the right
+    x: 100,
     duration: 1.5,
     ease: "power2.out",
-    delay: 0.8, // Slightly delay after the text animation
+    delay: 0.8,
   });
 }
 
 animateHeroSection();
 
-// Function to animate the feature section on scroll
+// Animation
 function animateFeaturesOnScroll() {
   gsap.from("#feature-top img", {
     scrollTrigger: {
       trigger: "#keyfeature",
-      scroller: "[data-scroll-container]", // Locomotive scroll container
-      start: "top 30%", // Trigger when the top of #keyfeature is 80% down the viewport
-      scrub: true, // Enable smooth scrubbing animation
+      scroller: "[data-scroll-container]",
+      start: "top 30%",
+      scrub: true,
     },
     x: -100,
     opacity: 0,
@@ -129,31 +124,29 @@ function animateFeaturesOnScroll() {
     ease: "power2.out",
   });
 
-  // Animate the main feature text
   gsap.from(".feature-item h2, .feature-item p", {
     scrollTrigger: {
       trigger: "#keyfeature",
-      scroller: "[data-scroll-container]", // Locomotive scroll container
-      start: "top 30%", // Trigger when the top of #keyfeature is 80% down the viewport
-      scrub: true, // Enable smooth scrubbing animation
+      scroller: "[data-scroll-container]",
+      start: "top 30%",
+      scrub: true,
     },
     opacity: 0,
-    y: 50, // Slide up animation
+    y: 50,
     duration: 1.2,
     ease: "power2.out",
   });
 
-  // Animate each feature item individually
   gsap.from("#feature-1, #feature-2, #feature-3", {
     scrollTrigger: {
       trigger: "#keyfeature",
-      scroller: "[data-scroll-container]", // Locomotive scroll container
-      start: "top 30%", // Trigger when the top of #keyfeature is 80% down the viewport
-      scrub: true, // Enable smooth scrubbing animation
+      scroller: "[data-scroll-container]",
+      start: "top 30%",
+      scrub: true,
     },
     opacity: 0,
-    y: 100, // Elements will slide up from below
-    stagger: 0.2, // Delay each feature for a sequential effect
+    y: 100,
+    stagger: 0.2,
     duration: 1,
     ease: "power2.out",
   });
@@ -161,90 +154,68 @@ function animateFeaturesOnScroll() {
 
 animateFeaturesOnScroll();
 
-// Animate common-text section
+// Text Animation
 function animateCommonTextOnScroll() {
-  // Animate the heading
   gsap.from("#common-text h2", {
     scrollTrigger: {
       trigger: "#common-text h2",
-      scroller: "[data-scroll-container]", // Optional if using Locomotive Scroll
-      start: "top 90%", // Starts when heading is near viewport
+      scroller: "[data-scroll-container]",
+      start: "top 90%",
       end: "bottom top",
-      toggleActions: "play none none reset", // Re-trigger on scroll back up
+      toggleActions: "play none none reset",
     },
-    opacity: 0, // Start fully transparent
-    x: -50, // Move from left by 50px
-    duration: 1.5, // Smooth duration
+    opacity: 0,
+    x: -50,
+    duration: 1.5,
     ease: "power3.out",
   });
 
-  // Animate the paragraph
   gsap.from("#common-text p", {
     scrollTrigger: {
       trigger: "#common-text p",
       scroller: "[data-scroll-container]",
-      start: "top 90%", // Starts when the paragraph is near viewport
+      start: "top 90%",
       end: "bottom top",
       toggleActions: "play none none reset",
     },
-    opacity: 0, // Start fully transparent
-    x: 50, // Move from right by 50px
+    opacity: 0,
+    x: 50,
     duration: 1.5,
     ease: "power3.out",
-    delay: 0.3, // Slight delay to stagger animation after heading
+    delay: 0.3,
   });
 }
 
 animateCommonTextOnScroll();
 
+// Learn More Section Animation
 function animateLearnMoreSection() {
-  // Select elements in the learn more section
   const img = document.querySelector(".learn-more-section .hero-img");
   const heading = document.querySelector(".learn-more-section .hero-text h2");
   const paragraph = document.querySelector(".learn-more-section .hero-text p");
   const button = document.querySelector(".learn-more-section .hero-text button");
 
-  // Animate image
   gsap.from(img, {
     scrollTrigger: {
-      trigger: img, // Trigger animation when the section enters the viewport
-      scroller: "[data-scroll-container]", // Locomotive scroll container
-      start: "top 80%", // Start when the top of the section hits 80% of the viewport
-      toggleActions: "play none none reset", // Play when entering, reset when leaving
-      once: false, // Allow animation to re-trigger when scrolling back up
-    },
-    x: -100, // Slide in from the left
-    opacity: 0, // Start invisible
-    duration: 1, // Duration of the animation
-    ease: "power2.out",
-  });
-
-  // Animate the heading
-  gsap.from(heading, {
-    scrollTrigger: {
-      trigger: heading, // Use the same trigger as the image
+      trigger: img,
       scroller: "[data-scroll-container]",
       start: "top 80%",
-      toggleActions: "play none none reset", // Play when entering, reset when leaving
-      once: false, // Allow animation to re-trigger when scrolling back up
+      toggleActions: "play none none reset",
+      once: false,
     },
+    x: -100,
     opacity: 0,
-    y: 50, // Slide up from 50px below
     duration: 1,
     ease: "power2.out",
   });
 
-
-
-
-  // Animate the paragraph
-  gsap.from(paragraph, {
+  gsap.from(heading, {
     scrollTrigger: {
-      trigger: paragraph,
-      scroller: "[data-scroll-container]", // Locomotive scroll container if using
-      start: "top 80%", // Start a little later for a staggered effect
-      toggleActions: "play none none reset", // Play when entering, reset when leaving
-      once: false, // Allow animation to re-trigger when scrolling back up
+      trigger: heading,
+      scroller: "[data-scroll-container]",
+      start: "top 80%",
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
     y: 50,
@@ -252,14 +223,27 @@ function animateLearnMoreSection() {
     ease: "power2.out",
   });
 
-  // Animate the button
+  gsap.from(paragraph, {
+    scrollTrigger: {
+      trigger: paragraph,
+      scroller: "[data-scroll-container]",
+      start: "top 80%",
+      toggleActions: "play none none reset",
+      once: false,
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: "power2.out",
+  });
+
   gsap.from(button, {
     scrollTrigger: {
       trigger: button,
       scroller: "[data-scroll-container]",
-      start: "top 80%", // Animate after the text is mostly visible
-      toggleActions: "play none none reset", // Play when entering, reset when leaving
-      once: false, // Allow animation to re-trigger when scrolling back up
+      start: "top 80%",
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
     y: 50,
@@ -270,25 +254,23 @@ function animateLearnMoreSection() {
 
 animateLearnMoreSection();
 
-// Function to animate service items and text
+// Services Section Animation
 function animateServicesAndText() {
-  // Animate the heading
   const heading = document.querySelector(".service-section h2");
   gsap.from(heading, {
     scrollTrigger: {
       trigger: heading,
       scroller: "[data-scroll-container]",
-      start: "top 90%", // Start when the top of the heading hits 90% of the viewport
+      start: "top 90%",
       end: "bottom top",
       scrub: 1,
     },
     opacity: 0,
-    y: -50, // Move from 50px above
+    y: -50,
     duration: 1.5,
     ease: "power2.out",
   });
 
-  // Animate the paragraph
   const paragraph = document.querySelector(".service-section p");
   gsap.from(paragraph, {
     scrollTrigger: {
@@ -299,12 +281,11 @@ function animateServicesAndText() {
       scrub: 1,
     },
     opacity: 0,
-    y: 20, // Move from 20px below
+    y: 20,
     duration: 1.5,
     ease: "power2.out",
   });
 
-  // Animate service items
   const services = document.querySelectorAll(".skill-section .col-lg-4");
 
   services.forEach((service) => {
@@ -327,9 +308,8 @@ function animateServicesAndText() {
 
 animateServicesAndText();
 
-// Function to animate pricing section
+// Pricing Section Animation
 function animatePricingSection() {
-  // Animate the heading and paragraph
   const heading = document.querySelector("#pricing h2");
   const paragraph = document.querySelector("#pricing p");
 
@@ -337,12 +317,12 @@ function animatePricingSection() {
     scrollTrigger: {
       trigger: heading,
       scroller: "[data-scroll-container]",
-      start: "top 90%", // Start when the top of the heading hits 90% of the viewport
+      start: "top 90%",
       end: "bottom top",
       scrub: 1,
     },
     opacity: 0,
-    y: -50, // Move from 50px above
+    y: -50,
     duration: 1.5,
     ease: "power2.out",
   });
@@ -356,12 +336,11 @@ function animatePricingSection() {
       scrub: 1,
     },
     opacity: 0,
-    y: 20, // Move from 20px below
+    y: 20,
     duration: 1.5,
     ease: "power2.out",
   });
 
-  // Animate pricing cards
   const cards = document.querySelectorAll(".box");
 
   cards.forEach((card, index) => {
@@ -369,47 +348,45 @@ function animatePricingSection() {
       scrollTrigger: {
         trigger: card,
         scroller: "[data-scroll-container]",
-        start: "top 85%",      // Trigger a bit earlier for smoother appearance
+        start: "top 85%",
         end: "bottom top",
-        scrub: 1,              // Enable smooth scrubbing for parallax effect
+        scrub: 1,
       },
       opacity: 0,
-      y: 50,                  // Move from below
-      scale: 0.85,            // Slightly smaller scale for more depth
-      rotateY: 10,            // Add slight 3D rotation on the Y-axis
-      skewX: 10,              // Skew the card for a unique perspective
+      y: 50,
+      scale: 0.85,
+      rotateY: 10,
+      skewX: 10,
       duration: 1.5,
-      ease: "power3.out",     // Use a smooth ease-out effect for natural flow
-      delay: index * 0.15,    // Stagger the animation for each card
+      ease: "power3.out",
+      delay: index * 0.15,
     });
 
-    // Adding hover interaction to make it more dynamic
     card.addEventListener("mouseenter", () => {
       gsap.to(card, {
-        scale: 1.05,          // Slight scale-up on hover for interaction
-        rotateY: 0,           // Reset any rotation on hover
-        skewX: 0,             // Remove skew on hover for a clean look
+        scale: 1.05,
+        rotateY: 0,
+        skewX: 0,
         duration: 0.5,
-        ease: "power2.out",   // Smooth and fast transition on hover
+        ease: "power2.out",
       });
     });
 
     card.addEventListener("mouseleave", () => {
       gsap.to(card, {
-        scale: 0.85,          // Return to original scale
-        rotateY: 10,          // Reapply the 3D rotation
-        skewX: 10,            // Reapply skew
+        scale: 0.85,
+        rotateY: 10,
+        skewX: 10,
         duration: 0.5,
-        ease: "power2.in",    // Smooth transition on leaving
+        ease: "power2.in",
       });
     });
   });
-
-
 }
 
 animatePricingSection();
 
+// Header section Animation
 function animateHeader() {
   const heading = document.querySelector("#faq h2");
   const paragraph = document.querySelector("#faq p");
@@ -418,14 +395,14 @@ function animateHeader() {
     scrollTrigger: {
       trigger: heading,
       scroller: "[data-scroll-container]",
-      start: "top 90%", // Start when the top of the heading hits 90% of the viewport
+      start: "top 90%",
       end: "bottom top",
       scrub: 1,
-      toggleActions: "play none none reset", // Reset and allow re-trigger
-      once: false, // Re-trigger animation when scrolling back up
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
-    y: -50, // Move from 50px above
+    y: -50,
     duration: 1.5,
     ease: "power2.out",
   });
@@ -437,25 +414,26 @@ function animateHeader() {
       start: "top 90%",
       end: "bottom top",
       scrub: 1,
-      toggleActions: "play none none reset", // Reset and allow re-trigger
-      once: false, // Re-trigger animation when scrolling back up
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
-    y: 20, // Move from 20px below
+    y: 20,
     duration: 1.5,
     ease: "power2.out",
   });
 }
 animateHeader();
 
+// Testimonial section Animation
 function animateBottom() {
   gsap.from("#testimonial h2", {
     scrollTrigger: {
       trigger: "#testimonial",
       scroller: "[data-scroll-container]",
-      start: "top 80%", // starts the animation when 80% of the section enters the viewport
-      toggleActions: "play none none reset", // Reset and allow re-trigger
-      once: false, // Re-trigger animation when scrolling back up
+      start: "top 80%",
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
     y: 50,
@@ -467,8 +445,8 @@ function animateBottom() {
       trigger: "#testimonial",
       scroller: "[data-scroll-container]",
       start: "top 75%",
-      toggleActions: "play none none reset", // Reset and allow re-trigger
-      once: false, // Re-trigger animation when scrolling back up
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
     y: 50,
@@ -481,8 +459,8 @@ function animateBottom() {
       trigger: "#testimonial",
       scroller: "[data-scroll-container]",
       start: "top 70%",
-      toggleActions: "play none none reset", // Reset and allow re-trigger
-      once: false, // Re-trigger animation when scrolling back up
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
     x: 80,
@@ -496,8 +474,8 @@ function animateBottom() {
       trigger: "#testimonialImage",
       scroller: "[data-scroll-container]",
       start: "top 70%",
-      toggleActions: "play none none reset", // Reset and allow re-trigger
-      once: false, // Re-trigger animation when scrolling back up
+      toggleActions: "play none none reset",
+      once: false,
     },
     opacity: 0,
     x: 100,
@@ -506,16 +484,17 @@ function animateBottom() {
 }
 animateBottom();
 
-function animateFooter() {
-  const scrollContainer = "[data-scroll-container]"; // Locomotive Scroll container
 
-  // General animation settings
+// Footer Animation
+function animateFooter() {
+  const scrollContainer = "[data-scroll-container]";
+
   const generalAnimationSettings = {
     scrollTrigger: {
       trigger: "#footer",
       scroller: scrollContainer,
-      start: "top 90%",  // Start animation earlier (was top 80%)
-      end: "top 40%",    // Adjust end position accordingly
+      start: "top 90%",
+      end: "top 40%",
       toggleActions: "play none none reset",
       once: false,
     },
@@ -524,41 +503,40 @@ function animateFooter() {
     duration: 1,
   };
 
-  // Animate the logo
   gsap.from("#footer .logo", {
-    ...generalAnimationSettings, // Use shared animation settings
+    ...generalAnimationSettings,
     scrollTrigger: {
-      ...generalAnimationSettings.scrollTrigger, // Shared ScrollTrigger settings
-      end: "bottom 30%", // Specific end point for the logo
+      ...generalAnimationSettings.scrollTrigger,
+      end: "bottom 30%",
     },
   });
 
-  // Animate the links
   gsap.from("#footer .links li", {
     ...generalAnimationSettings,
     scrollTrigger: {
       ...generalAnimationSettings.scrollTrigger,
-      start: "top 95%", // Start even earlier for links
-      end: "top 50%",   // Adjust end position
+      start: "top 95%",
+      end: "top 50%",
     },
-    x: -50, // Slide from left
-    stagger: 0.2, // Staggered effect for each link
+    x: -50,
+    stagger: 0.2,
   });
 
-  // Animate the social icons
   gsap.from("#footer .social-icons i", {
     ...generalAnimationSettings,
     stagger: 0.2,
   });
 
-  // Animate the copyright text
   gsap.from("#footer p", {
     ...generalAnimationSettings,
-    delay: 1, // Delayed to appear after other elements
+    delay: 1,
   });
 }
 
 animateFooter();
+
+
+
 
 
 
